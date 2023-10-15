@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% block title %} dashboard {% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand-lg">
+
+
+<div class="container-fluid">
+    <div>
+        <h4>wellcome: {{user.username}}</h4>
+
+    </div>
+    <div>
+        <a href="/user_answers"><button class="btn btn-secondary">Your Result</button></a></li>
+    </div>
+</div>
+</nav>
+<hr>
+<div>
+    <h5>Please verify your details below before proceeding to the examination</h5>
+</div>
+{% if user.is_authenticated %}
+
+<div>
+    <div>
+        <ul><li>First Name: {{user.first_name}}</li>
+            <li>Last Name: {{user.last_name}}</li>
+            <li>ID Number: {{user.id_number}}</li>
+
+
+        </ul> 
+    </div>
+    <div><hr>
+        <div class="test-instruction">
+            <div class="h4">Instruction:</div>  
+            <ul class="card-body">
+            <li>Total number of questions: <b>20</b>.</li>
+            <li>Time allotted: <b>30</b> minutes.</li>
+            <li>Each question carries 1 mark; there are no negative marks.</li>
+            <li>DO NOT refresh the page.</li>
+            <li>All the best!</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% else %}
+{% endif %}  
+<div>
+    <div>
+        <a href="/exam"><button class="btn btn-primary">Proceed</button></a></li>
+    </div>
+</div>
+
+{% endblock %}

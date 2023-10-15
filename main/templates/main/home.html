@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% block title %} home {% endblock %}
+{% block content %}
+<div>
+    <h2>Wellcome</h2>
+    <p>please note. a student is advised to fill the registration form with caution, <br>
+        your username and password will be required to log you in for the examination
+    </p>
+    <p>
+        This examination is strictly for students in mathematics department only,
+        <br>
+        you can visit the members page to see the list of students who contribute to this project
+    </p>
+</div>
+
+<div class="container">
+    {% if user.is_authenticated %}
+    <div class="container-fluid">
+    <p>Please proceed to your <span><a href="/dashboard">Dashboard</a></span></p>
+    </div>
+    {% else %}
+    <div class="container-fluid expanded-lg">
+        <div class="">
+            <a href="/login" type="button" class="btn btn-primary">Login</a>
+            <a href="/sign_up" type="button" class="btn btn-primary">Sign Up</a>
+        </div>
+        <div>
+        </div>
+        
+
+
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

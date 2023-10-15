@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% block title %} Members {% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="col-md-6 offset-md3">
+        <div class="card-body">
+        {% for member in members %}
+        <strong class="expanded">Member: {{member.id_number}}</strong><br><hr>
+        {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

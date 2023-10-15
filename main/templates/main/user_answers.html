@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Answers</title>
+</head>
+<body>
+    <h1>User Answers</h1>
+
+    <p>Total Score: {{ total_score }}</p>
+
+    <h2>Exams</h2>
+    {% if exams %}
+        <ul>
+            {% for exam in exams %}
+                <li>{{ exam.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No exams taken.</p>
+    {% endif %}
+
+    <h2>Answers</h2>
+    {% if user_answers %}
+        <ul>
+            {% for answer in user_answers %}
+                <li>{{ answer.question_text }}: {{ answer.answer }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No answers found.</p>
+    {% endif %}
+
+    <a href="{% url 'dashboard' %}">Back to Home</a>
+</body>
+</html>
